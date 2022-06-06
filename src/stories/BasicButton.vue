@@ -10,7 +10,6 @@ import { computed } from "vue";
 
 interface Props {
   label: string;
-  primary?: boolean;
   backgroundColor?: string;
   size: Size;
 }
@@ -29,8 +28,6 @@ const onClick = () => {
 
 const classes = computed(() => ({
   "storybook-button": true,
-  "storybook-button--primary": props.primary,
-  "storybook-button--secondary": !props.primary,
   [`storybook-button--${props.size || "medium"}`]: true,
 }));
 
@@ -39,9 +36,7 @@ const style = computed(() => ({
 }));
 </script>
 
-<style lang="scss" scoped>
-@use "@/styles/functions/color" as *;
-
+<style scoped>
 .storybook-button {
   font-family: "Overpass", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 700;
@@ -50,26 +45,6 @@ const style = computed(() => ({
   cursor: pointer;
   display: inline-block;
   line-height: 1;
-}
-.storybook-button--primary {
-  color: color(light);
-  background-color: color(cta, primary);
-  border-color: color(cta, primary);
-
-  @media (prefers-color-scheme: dark) {
-    color: color(dark);
-    background-color: color(light);
-  }
-}
-.storybook-button--secondary {
-  color: color(light);
-  background-color: transparent;
-  box-shadow: color(light) 0px 0px 0px 1px inset;
-
-  @media (prefers-color-scheme: dark) {
-    background-color: color(dark);
-    color: color(light);
-  }
 }
 .storybook-button--small {
   font-size: 12px;
