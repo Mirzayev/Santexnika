@@ -1,6 +1,10 @@
 <template>
-  <p class="text-green-700">
-    Blank template, write your code here.
-    <a href="https://github.com/UIC-Group/vue3-powerbuild">GitHub repo</a>
-  </p>
+  <HomePage />
+  <RouterLink />
+  <RouterView />
 </template>
+
+<script setup>
+import HomePage from "@/Pages/HomePage.vue";
+import { RouterLink, RouterView } from "vue-router";
+</script>
